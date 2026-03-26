@@ -23,14 +23,18 @@
     <button class="btn pulse" onclick="vibe([500, 200, 500, 200, 500, 200, 500])">ПУЛЬСАЦІЯ</button>
     <button class="btn stop" onclick="vibe(0)">СТОП</button>
 
+    <button class="btn start" onclick="vibe(10000)">ПУСК (10 сек)</button>
+
     <script>
-        function vibe(pattern) {
+        function vibe(ms) {
             if ("vibrate" in navigator) {
-                navigator.vibrate(pattern);
+                  // Спроба через стандартний API
+                navigator.vibrate(ms);
             } else {
-                alert("Твій браузер занадто старий. Спробуй інший!");
-            }
+                // Якщо не працює - виводимо інструкцію для iOS 9
+                alert("iOS 9 блокує вібро в браузері. \n\nПорада: Зайди в Налаштування -> Звуки -> Вібрація і переконайся, що вона ввімкнена. \n\nАбо спробуй встановити додаток 'Vibrate' через App Store (Покупки).");
         }
-    </script>
+    }
+</script>
 </body>
 </html>
