@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Test 4S</title>
+    <style>
+        body { background: #000; color: #fff; font-family: sans-serif; text-align: center; padding-top: 50px; }
+        .btn { 
+            width: 80%; padding: 25px; margin: 10px; border: none; border-radius: 15px; 
+            font-size: 20px; font-weight: bold; cursor: pointer; color: white;
+        }
+        .stop { background: #ff3b30; }
+        .start { background: #34c759; }
+        .pulse { background: #ff9500; }
+    </style>
+</head>
+<body>
+    <h1>📳 Vibe Hub</h1>
+    <p>Спеціально для iPhone 4S</p>
+    
+    <button class="btn start" onclick="vibe(30000)">ПОСТІЙНА (30 сек)</button>
+    <button class="btn pulse" onclick="vibe([500, 200, 500, 200, 500, 200, 500])">ПУЛЬСАЦІЯ</button>
+    <button class="btn stop" onclick="vibe(0)">СТОП</button>
+
+    <script>
+        function vibe(pattern) {
+            if ("vibrate" in navigator) {
+                navigator.vibrate(pattern);
+            } else {
+                alert("Твій браузер занадто старий. Спробуй інший!");
+            }
+        }
+    </script>
+</body>
+</html>
